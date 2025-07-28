@@ -10,16 +10,30 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/components.css') }}">
     
     <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="icon" type="image/png" href="{{ url_for("static", filename="images/favicon.ico") }}">
-</head>         <div class="header-content">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='images/favicon.ico') }}">
+    
+    <!-- Meta Tags -->
+    <meta name="description" content="ARQV30 Enhanced v2.0 - Análise Ultra-Detalhada de Mercado com IA Avançada">
+    <meta name="keywords" content="análise de mercado, inteligência artificial, pesquisa profunda, avatar detalhado">
+    <meta name="author" content="ARQV30 Enhanced">
+<body class="cyber-grid scan-lines">
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
                 <div class="logo">
-                    <img src="{{ url_for('static', filename='images/logo.png') }}" alt="ARQV30 Enhanced" class="logo-img">
+                    <div class="logo-img">
+                        <i class="fas fa-brain"></i>
+                    </div>
                     <div class="logo-text">
-                        <h1>ARQV30 Enhanced</h1>
+                        <h1 class="holographic text-3d">ARQV30 Enhanced</h1>
                         <span class="version">v2.0</span>
                     </div>
                 </div>
@@ -40,26 +54,26 @@
             <!-- Hero Section -->
             <section class="hero">
                 <div class="hero-content">
-                    <h2 class="hero-title">Análise Ultra-Detalhada de Mercado</h2>
+                    <h2 class="hero-title holographic text-3d">Análise Ultra-Detalhada de Mercado</h2>
                     <p class="hero-subtitle">
-                        Powered by Artificial Intelligence • Google Gemini Pro 2.5 • Pesquisa Profunda
+                        🤖 Powered by Multi-AI • 🌐 Pesquisa Profunda Real • 📊 Análise Neumórfica
                     </p>
                     <div class="hero-features">
                         <div class="feature">
-                            <i class="fas fa-brain"></i>
-                            <span>IA Avançada</span>
+                            <i class="fas fa-robot neon-glow"></i>
+                            <span>Multi-AI System</span>
                         </div>
                         <div class="feature">
-                            <i class="fas fa-search"></i>
-                            <span>Pesquisa Profunda</span>
+                            <i class="fas fa-globe-americas neon-glow"></i>
+                            <span>WebSailor Real</span>
                         </div>
                         <div class="feature">
-                            <i class="fas fa-chart-line"></i>
-                            <span>Análise Completa</span>
+                            <i class="fas fa-chart-network neon-glow"></i>
+                            <span>Avatar 3D</span>
                         </div>
                         <div class="feature">
-                            <i class="fas fa-file-pdf"></i>
-                            <span>Relatório PDF</span>
+                            <i class="fas fa-file-contract neon-glow"></i>
+                            <span>PDF Neumórfico</span>
                         </div>
                     </div>
                 </div>
@@ -71,7 +85,7 @@
                     <form id="analysisForm" class="analysis-form">
                         <!-- Basic Information -->
                         <div class="form-group">
-                            <h3 class="section-title">
+                            <h3 class="section-title cyber-border">
                                 <i class="fas fa-info-circle"></i>
                                 Informações Básicas
                             </h3>
@@ -105,7 +119,7 @@
 
                         <!-- Advanced Information -->
                         <div class="form-group">
-                            <h3 class="section-title">
+                            <h3 class="section-title cyber-border">
                                 <i class="fas fa-cogs"></i>
                                 Informações Avançadas
                             </h3>
@@ -146,7 +160,7 @@
 
                         <!-- Deep Search -->
                         <div class="form-group">
-                            <h3 class="section-title">
+                            <h3 class="section-title cyber-border">
                                 <i class="fas fa-search-plus"></i>
                                 Pesquisa Profunda
                             </h3>
@@ -156,24 +170,24 @@
                                 <input type="text" id="query" name="query" 
                                        placeholder="Ex: tendências marketing digital 2024 Brasil">
                                 <small class="input-help">
-                                    <i class="fas fa-info-circle"></i>
-                                    A IA fará uma pesquisa profunda na internet usando esta query
+                                    <i class="fas fa-satellite-dish neon-glow"></i>
+                                    WebSailor realizará pesquisa profunda REAL na internet
                                 </small>
                             </div>
                         </div>
 
                         <!-- File Upload -->
                         <div class="form-group">
-                            <h3 class="section-title">
+                            <h3 class="section-title cyber-border">
                                 <i class="fas fa-paperclip"></i>
                                 Anexos Inteligentes
                             </h3>
                             
-                            <div class="upload-area" id="uploadArea">
+                            <div class="upload-area glass-card" id="uploadArea">
                                 <div class="upload-content">
-                                    <i class="fas fa-cloud-upload-alt"></i>
+                                    <i class="fas fa-cloud-upload-alt neon-glow"></i>
                                     <h4>Arraste arquivos aqui ou clique para selecionar</h4>
-                                    <p>PDF, DOC, XLSX, CSV, TXT, JSON</p>
+                                    <p>📄 PDF • 📝 DOC • 📊 XLSX • 📋 CSV • 📄 TXT • 🔧 JSON</p>
                                     <input type="file" id="fileInput" multiple accept=".pdf,.doc,.docx,.xlsx,.xls,.csv,.txt,.json">
                                 </div>
                             </div>
@@ -183,7 +197,7 @@
 
                         <!-- Additional Data -->
                         <div class="form-group">
-                            <h3 class="section-title">
+                            <h3 class="section-title cyber-border">
                                 <i class="fas fa-plus-circle"></i>
                                 Dados Adicionais
                             </h3>
@@ -198,7 +212,7 @@
                         <!-- Submit Button -->
                         <div class="form-actions">
                             <button type="submit" class="btn-primary" id="analyzeBtn">
-                                <i class="fas fa-magic"></i>
+                                <i class="fas fa-rocket neon-glow"></i>
                                 <span>Gerar Análise Ultra-Detalhada</span>
                             </button>
                         </div>
@@ -208,10 +222,10 @@
 
             <!-- Progress Area -->
             <section class="progress-section" id="progressArea" style="display: none;">
-                <div class="progress-container">
+                <div class="progress-container glass-card data-stream">
                     <div class="progress-header">
-                        <h3>🚀 Análise em Progresso</h3>
-                        <p>Gerando relatório ultra-detalhado com pesquisa profunda</p>
+                        <h3 class="neon-glow">🚀 Análise Neumórfica em Progresso</h3>
+                        <p>Sistemas de IA e WebSailor trabalhando em sinergia</p>
                     </div>
                     
                     <div class="progress-bar-container">
@@ -232,15 +246,15 @@
                     
                     <div class="progress-details">
                         <div class="progress-feature">
-                            <i class="fas fa-globe"></i>
+                            <i class="fas fa-satellite neon-glow"></i>
                             <span>WebSailor realizando pesquisa profunda</span>
                         </div>
                         <div class="progress-feature">
-                            <i class="fas fa-brain"></i>
+                            <i class="fas fa-microchip neon-glow"></i>
                             <span>Múltiplas IAs processando dados</span>
                         </div>
                         <div class="progress-feature">
-                            <i class="fas fa-chart-line"></i>
+                            <i class="fas fa-analytics neon-glow"></i>
                             <span>Gerando insights ultra-detalhados</span>
                         </div>
                     </div>
@@ -249,19 +263,19 @@
 
             <!-- Results Section -->
             <section class="results-section" id="resultsArea" style="display: none;">
-                <div class="results-container">
+                <div class="results-container glass-card">
                     <div class="results-header">
                         <h3>
-                            <i class="fas fa-chart-bar"></i>
+                            <i class="fas fa-chart-network neon-glow"></i>
                             Análise Ultra-Detalhada Concluída
                         </h3>
                         <div class="results-actions">
                             <button class="btn-secondary" id="downloadPdfBtn" style="display: none;">
-                                <i class="fas fa-download"></i>
+                                <i class="fas fa-file-pdf neon-glow"></i>
                                 Download PDF
                             </button>
                             <button class="btn-secondary" onclick="location.reload()">
-                                <i class="fas fa-plus"></i>
+                                <i class="fas fa-refresh neon-glow"></i>
                                 Nova Análise
                             </button>
                         </div>
@@ -315,10 +329,26 @@
         </div>
     </main>
 
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <p>&copy; 2025 ARQV30 Enhanced v2.0 - Powered by Multi-AI Systems</p>
+                </div>
+                <div class="footer-links">
+                    <a href="#" class="footer-link">Documentação</a>
+                    <a href="#" class="footer-link">API Status</a>
+                    <a href="#" class="footer-link">Suporte</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
     <!-- Scripts -->
-    <script src="/static/js/main.js"></script>
-    <script src="/static/js/upload.js"></script>
-    <script src="/static/js/analysis.js"></script>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/upload.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/analysis.js') }}"></script>
 </body>
 </html>
 

@@ -28,14 +28,16 @@ class AIManager:
                 'available': False,
                 'priority': 1,
                 'rate_limit_reset': None,
-                'error_count': 0
+                'error_count': 0,
+                'model': 'gemini-1.5-flash'  # Modelo mais eficiente
             },
             'openai': {
                 'client': None,
                 'available': False,
                 'priority': 2,
                 'rate_limit_reset': None,
-                'error_count': 0
+                'error_count': 0,
+                'model': 'gpt-3.5-turbo'  # Modelo mais estável
             },
             'huggingface': {
                 'client': None,
@@ -44,11 +46,11 @@ class AIManager:
                 'rate_limit_reset': None,
                 'error_count': 0,
                 'models': [
-                    "distilbert/distilgpt2",
-                    "gpt2",
-                    "facebook/bart-large-cnn",
-                    "t5-small",
-                    "microsoft/DialoGPT-small"
+                    "microsoft/DialoGPT-medium",
+                    "microsoft/DialoGPT-large",
+                    "facebook/blenderbot-400M-distill",
+                    "google/flan-t5-base",
+                    "HuggingFaceH4/zephyr-7b-beta"
                 ],
                 'current_model_index': 0
             }
@@ -65,9 +67,9 @@ class AIManager:
             gemini_key = os.getenv('GEMINI_API_KEY')
             if gemini_key:
                 genai.configure(api_key=gemini_key)
-                self.providers['gemini']['client'] = genai.GenerativeModel("gemini-1.5-pro")
+                self.providers['gemini']['client'] = genai.GenerativeModel("gemini-1.5-flash")
                 self.providers['gemini']['available'] = True
-                logger.info("✅ Gemini inicializado com sucesso")
+                logger.info("✅ Gemini Flash inicializado com sucesso")
         except Exception as e:
             logger.warning(f"⚠️ Falha ao inicializar Gemini: {str(e)}")
         
@@ -75,6 +77,7 @@ class AIManager:
         try:
             openai_key = os.getenv('OPENAI_API_KEY')
             if openai_key:
+                openai.api_key = openai_key
                 self.providers["openai"]["client"] = openai.OpenAI(api_key=openai_key)
                 self.providers["openai"]["available"] = True
                 logger.info("✅ OpenAI inicializado com sucesso")
@@ -149,10 +152,10 @@ class AIManager:
             client = self.providers['gemini']['client']
             
             generation_config = {
-                'temperature': 0.9,
+                'temperature': 0.7,
                 'top_p': 0.95,
                 'top_k': 64,
-                'max_output_tokens': max_tokens,
+                'max_output_tokens': min(max_tokens, 2048),  # Reduz para evitar quota
                 'candidate_count': 1
             }
             
@@ -189,13 +192,13 @@ class AIManager:
                 raise ValueError("OPENAI_API_KEY not found")
             client = openai.OpenAI(api_key=openai_key)
             response = client.chat.completions.create(
-                model="gpt-3.5-turbo-16k",
+                model="gpt-3.5-turbo",
                 messages=[
                     {"role": "system", "content": "Você é um especialista em análise de mercado ultra-detalhada."},
                     {"role": "user", "content": prompt}
                 ],
-                max_tokens=max_tokens,
-                temperature=0.9,
+                max_tokens=min(max_tokens, 1500),
+                temperature=0.7,
                 top_p=0.95
             )
             

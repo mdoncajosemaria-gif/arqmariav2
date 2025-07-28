@@ -52,6 +52,13 @@ def create_app():
     app.register_blueprint(user_bp, url_prefix='/api')
     app.register_blueprint(pdf_bp, url_prefix='/api')
     
+    # Rota para compatibilidade com PDF
+    @app.route('/generate-pdf', methods=['POST'])
+    def generate_pdf_compat():
+        """Rota de compatibilidade para geração de PDF"""
+        from routes.pdf_generator import generate_pdf
+        return generate_pdf()
+    
     # Rota principal
     @app.route('/')
     def index():
